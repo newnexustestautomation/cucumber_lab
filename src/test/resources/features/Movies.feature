@@ -1,5 +1,5 @@
 #language:nl
-Functionaliteit: Inloggen op de SUT
+Functionaliteit: beheren van movies
 
   OMSCHRIJVING
   =======================================================================================================================================
@@ -7,6 +7,7 @@ Functionaliteit: Inloggen op de SUT
 
   Achtergrond:
     Gegeven Testomgeving "LAB"
+
 
   @LAB
   @NEWNEXUS
