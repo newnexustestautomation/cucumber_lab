@@ -14,9 +14,9 @@ Gegeven Testomgeving "LAB"
 
 Abstract Scenario: maak een account aan
 
-  Gegeven de SUT is gestart
-  Als er een account is aangemaakt met <account> en <password>
-  Dan is het <account> en het <password> zichtbaar in de database
+  Gegeven marvins movie store is opgestart
+  Als er een account wordt aangemaakt met "<account>" en "<password>"
+  Dan is het "<account>" en het "<password>" zichtbaar in de database
 
   Voorbeelden:
   | account | password |
