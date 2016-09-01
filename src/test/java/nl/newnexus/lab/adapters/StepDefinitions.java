@@ -1,6 +1,10 @@
 package nl.newnexus.lab.adapters;
 
+import com.galenframework.api.Galen;
+import com.galenframework.reports.GalenTestInfo;
+import com.galenframework.reports.model.LayoutReport;
 import cucumber.api.PendingException;
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.nl.Als;
@@ -9,26 +13,34 @@ import cucumber.api.java.nl.En;
 import cucumber.api.java.nl.Gegeven;
 import nl.newnexus.lab.framework.ParentScenario;
 
+import static java.util.Arrays.asList;
+
 /**
  * Created by robertvanbuiten on 01-09-16.
  */
 public class StepDefinitions extends ParentScenario{
 
     @Before
-    public void beforeScenario() {
-        startBrowser();
+    public void startTest(Scenario scenario)
+    {
+        initTest(scenario);
     }
 
     @After
-    public void afterScenario() {
-        closeBrowser();
+    public void createGalenReport(Scenario scenario)
+    {
+        teardownTest(scenario);
     }
 
 
     @Gegeven("^een voorbeeld$")
     public void eenVoorbeeld() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        setBrowserType("chrome");
+        driver = createDriver(null);
+        load("http://www.tweakers.net");
+        String item = getDriver().getTitle();
+        log.info(item);
     }
 
     @Gegeven("^Testomgeving \"([^\"]*)\"$")
@@ -40,7 +52,13 @@ public class StepDefinitions extends ParentScenario{
     @Gegeven("^de SUT is gestart$")
     public void deSUTIsGestart() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        // Write code here that turns the phrase above into concrete actions
+        LayoutReport layoutReport = Galen.checkLayout(driver, "/specs/uwpensioen.spec", asList("desktop"));
+
+        // Creating an object that will contain the information about the test
+        GalenTestInfo test = GalenTestInfo.fromString("Start pagina");
+        test.getReport().layout(layoutReport, "Start pagina");
+        tests.add(test);
     }
 
     @Als("^er een account is aangemaakt met <account> en <password>$")
