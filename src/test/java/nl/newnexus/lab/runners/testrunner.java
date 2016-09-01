@@ -7,7 +7,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(features = "src/test/resources/features/example.feature",
-        glue = "uk.co.automatictester.jwebfwk.glue",
-        format = {"pretty"})
+        glue = "nl.newnexus.lab.adapters",
+        format = {"pretty", "json:target/cucumber/cucumber.json"})
 public class testrunner extends AbstractTestNGCucumberTests {
 }
