@@ -18,15 +18,18 @@ public class Users {
         this.dbHandler = dbHandler;
     }
 
-public String testDbConnection(){
-
-    Query query =  dbHandler.entityManager.createNativeQuery("select * from movies");
 
 
-    return  query.getResultList().get(0).toString();
-}
+    public boolean checkExistsByName(String username){
 
+        Query query =  dbHandler.entityManager.createNativeQuery("select cast(email as varchar) from aspnetusers where username = '"+username+"'");
+log.error(query.getResultList().get(0));
 
+        if(query.getResultList().size()>0)
+            return true;
+        return false;
+
+    }
 
 
 }
