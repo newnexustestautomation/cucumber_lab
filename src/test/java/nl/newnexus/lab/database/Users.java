@@ -23,7 +23,7 @@ public class Users {
     public boolean checkExistsByName(String username){
 
         Query query =  dbHandler.entityManager.createNativeQuery("select cast(email as varchar) from aspnetusers where username = '"+username+"'");
-log.error(query.getResultList().get(0));
+        log.info(query.getResultList().get(0));
 
         if(query.getResultList().size()>0)
             return true;
