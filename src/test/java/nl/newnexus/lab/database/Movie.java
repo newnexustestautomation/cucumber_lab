@@ -24,7 +24,7 @@ public class Movie {
         if(query.getResultList().size()>0)
             return true;
         return false;
-
+ 
     }
 
 
