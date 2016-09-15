@@ -11,6 +11,7 @@ import cucumber.api.java.nl.Als;
 import cucumber.api.java.nl.Dan;
 import cucumber.api.java.nl.En;
 import cucumber.api.java.nl.Gegeven;
+import nl.newnexus.lab.database.DatabaseHandler;
 import nl.newnexus.lab.framework.ParentStep;
 import nl.newnexus.lab.pages.CreateAccountPage;
 import nl.newnexus.lab.pages.CreateMoviePage;
@@ -27,9 +28,14 @@ import static java.util.Arrays.asList;
  */
 public class StepDefinitions extends ParentStep {
 
+    private DatabaseHandler dbHandler;
+
+
     @Before
     public void startTest(Scenario scenario)
     {
+        dbHandler=DatabaseHandler.getInstance();
+        dbHandler.init();
         initTest(scenario);
     }
 

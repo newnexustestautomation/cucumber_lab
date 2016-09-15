@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PluginProjectConfig">
+    <option name="path" value="$USER_HOME$/Desktop/movies" />
+    <option name="sql" value="CREATE TABLE Movies(&#10;&#9;Id int IDENTITY(1,1) NOT NULL,&#10;&#9;Title nvarchar(max) NOT NULL,&#10;&#9;Director nvarchar(max) NOT NULL,&#10;&#9;DateReleased datetime NOT NULL,&#10;PRIMARY KEY CLUSTERED &#10;(&#10;&#9;Id ASC&#10;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#10;) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]&#10;&#10;&#10;" />
+  </component>
+</project>
