@@ -8,45 +8,42 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
 /**
  * Created by robertvanbuiten on 01-09-16.
  */
-public class CreateAccountPage extends ParentPage {
+public class CreateMoviePage extends ParentPage {
 
     protected static Logger log = LogManager.getLogger(StartPage.class);
 
     @FindBy(xpath = "/html/body/div[2]/form/div[1]/ul/li/")
     private WebElement foutmelding;
 
+    @FindBy(id = "Title")
+    private WebElement title;
 
-    @FindBy(id = "Email")
-    private WebElement email;
+    @FindBy(id = "Director")
+    private WebElement director;
 
-    @FindBy(id = "Password")
-    private WebElement password;
+    @FindBy(id = "DateReleased")
+    private WebElement datereleased;
 
-    @FindBy(id = "ConfirmPassword")
-    private WebElement confirmpassword;
-
-    public CreateAccountPage(WebDriver driver)
+    public CreateMoviePage(WebDriver driver)
     {
         super(driver);
 
     }
 
-    public boolean maakEenAccount(String stremail, String strpassword)
+    public boolean maakEenfilm(String stitel, String sdirector, String sdate)
     {
         PageFactory.initElements(driver,this);
-        if (password.isDisplayed())
-            password.sendKeys(strpassword);
-        if (email.isDisplayed())
-            email.sendKeys(stremail);
-        if (confirmpassword.isDisplayed())
-            confirmpassword.sendKeys(strpassword);
+        if (title.isDisplayed())
+            title.sendKeys(stitel);
+        if (director.isDisplayed())
+            director.sendKeys(sdirector);
+        if (datereleased.isDisplayed())
+            datereleased.sendKeys(sdate);
 
-        clickOnButton("Register");
+        clickOnButton("Create");
         return true;
     }
 
@@ -58,7 +55,7 @@ public class CreateAccountPage extends ParentPage {
 
     public boolean wordtPaginaGetoond()
     {
-        return isTextOnPagePresent("create a new account");
+        return isTextOnPagePresent("Movie");
     }
 
 

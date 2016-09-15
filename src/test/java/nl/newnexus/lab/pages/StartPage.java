@@ -39,6 +39,14 @@ public class StartPage extends ParentPage {
         return true;
     }
 
+    public boolean login(String semail, String spassword)
+    {
+       controleerPagina();
+        email.sendKeys(semail);
+        password.sendKeys(spassword);
+        clickOnButton("Log in");
+        return true;
+    }
 
 
     public boolean wordtPaginaGetoond() {

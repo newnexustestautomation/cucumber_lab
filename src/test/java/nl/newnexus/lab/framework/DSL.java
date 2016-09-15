@@ -52,8 +52,6 @@ public abstract class DSL {
 
     public Boolean clickOnButton(String text)
     {
-
-
         buttons = driver.findElements(By.className("btn"));
 
         if (buttons.size() == 1)
@@ -64,8 +62,8 @@ public abstract class DSL {
             for (WebElement e : buttons) {
 
                 if (e.isDisplayed() && e.isEnabled()) {
-
-                    if (e.getText().equalsIgnoreCase(text)) {
+                    System.out.println(e.getText());
+                    if (e.getAttribute("value").equalsIgnoreCase(text)) {
                         e.click();
                         return true;
                     }
