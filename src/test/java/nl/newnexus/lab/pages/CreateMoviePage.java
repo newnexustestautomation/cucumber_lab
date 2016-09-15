@@ -47,6 +47,18 @@ public class CreateMoviePage extends ParentPage {
         return true;
     }
 
+    public boolean controleerTitel(String stitel)
+    {
+        boolean blnResult = true;
+
+        if (title.getText().equalsIgnoreCase(stitel))
+            return true;
+        else
+            return false;
+    }
+
+
+
     public boolean checkFoutmelding(String text)
     {
         PageFactory.initElements(driver,this);

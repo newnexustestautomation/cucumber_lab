@@ -137,4 +137,12 @@ public class StepDefinitions extends ParentStep {
         CreateMoviePage create = new CreateMoviePage(driver);
         Assert.assertEquals(true,create.maakEenfilm(tit,reg,dat));
     }
+
+    @En("^film met titel \"([^\"]*)\" wordt geselecteerd in het filmoverzicht$")
+    public void filmMetTitelWordtGeselecteerdInHetFilmoverzicht(String titel) throws Throwable {
+
+        MovieOverviewPage overview = new MovieOverviewPage(driver);
+        Assert.assertEquals(true,overview.selecteerFilm(titel),"Film niet gevonden");
+
+    }
 }
