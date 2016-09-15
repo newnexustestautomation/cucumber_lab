@@ -28,4 +28,17 @@ public class Movie {
     }
 
 
+    public boolean checkExists(String title, String director){
+        Query query =  dbHandler.entityManager.createQuery("select m from Movies m where 1=1 " +
+                " and m.title = '"+title+"' " +
+                " and m.director = '"+director+"'");
+        if(query.getResultList().size()==1) {
+            Movies movies = (Movies) query.getResultList().get(0);
+            log.info(movies.getTitle());
+            return true;
+        }
+        return false;
+
+    }
+
 }
