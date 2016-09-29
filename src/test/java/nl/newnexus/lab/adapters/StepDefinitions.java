@@ -33,7 +33,7 @@ import static java.util.Arrays.asList;
 public class StepDefinitions extends ParentStep {
 
     private DatabaseHandler dbHandler;
-    public User users;
+    public User user;
     public Movie movie;
 
     @Before
@@ -147,5 +147,11 @@ public class StepDefinitions extends ParentStep {
     public void zijnDeOpgenomenInDeDatabase(String title, String director) throws Throwable {
         movie = new Movie(dbHandler);
         Assert.assertTrue(movie.checkExists(title, director));
+    }
+
+    @Dan("^is het \"([^\"]*)\" zichtbaar in de database$")
+    public void isHetZichtbaarInDeDatabase(String username) throws Throwable {
+        user = new User(dbHandler);
+        Assert.assertTrue(user.checkExistsByName(username));
     }
 }
