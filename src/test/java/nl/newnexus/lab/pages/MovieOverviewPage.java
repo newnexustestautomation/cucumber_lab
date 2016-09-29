@@ -40,6 +40,21 @@ public class MovieOverviewPage extends ParentPage {
         return false;
     }
 
+    public boolean selecteerFilm(String titel) {
+        PageFactory.initElements(driver, this);
+
+        List<WebElement> rows = overview.findElements(By.tagName("tr"));
+        for (WebElement row : rows) {
+            String strRow = row.getText().toLowerCase();
+            if (strRow.contains(titel.toLowerCase())) {
+                WebElement edit = row.findElement(By.linkText("Edit"));
+                edit.click();
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean controleerFilm(String titel, String regiseur, Date released) {
 
         boolean blnResult;
