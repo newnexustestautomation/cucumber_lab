@@ -12,12 +12,16 @@ import cucumber.api.java.nl.Dan;
 import cucumber.api.java.nl.En;
 import cucumber.api.java.nl.Gegeven;
 import nl.newnexus.lab.database.DatabaseHandler;
+import nl.newnexus.lab.database.Movie;
+import nl.newnexus.lab.database.User;
 import nl.newnexus.lab.framework.ParentStep;
 import nl.newnexus.lab.pages.CreateAccountPage;
 import nl.newnexus.lab.pages.CreateMoviePage;
 import nl.newnexus.lab.pages.MovieOverviewPage;
 import nl.newnexus.lab.pages.StartPage;
 import org.testng.Assert;
+import nl.newnexus.lab.database.*;
+
 
 import java.util.Date;
 
@@ -29,7 +33,8 @@ import static java.util.Arrays.asList;
 public class StepDefinitions extends ParentStep {
 
     private DatabaseHandler dbHandler;
-
+    public User users;
+    public Movie movie;
 
     @Before
     public void startTest(Scenario scenario)
@@ -82,7 +87,7 @@ public class StepDefinitions extends ParentStep {
         // Write code here that turns the phrase above into concrete actions
         setBrowserType("chrome");
         driver = createDriver(null);
-        load("https://192.168.1.6:44312");
+        load("https://192.168.1.7:44312");
         String item = getDriver().getTitle();
         Assert.assertEquals(true,item.contains("CheckIT"),"movie store is geopend");
 
@@ -138,11 +143,9 @@ public class StepDefinitions extends ParentStep {
         Assert.assertEquals(true,create.maakEenfilm(tit,reg,dat));
     }
 
-    @En("^film met titel \"([^\"]*)\" wordt geselecteerd in het filmoverzicht$")
-    public void filmMetTitelWordtGeselecteerdInHetFilmoverzicht(String titel) throws Throwable {
-
-        MovieOverviewPage overview = new MovieOverviewPage(driver);
-        Assert.assertEquals(true,overview.selecteerFilm(titel),"Film niet gevonden");
-
+    @Dan("^zijn de \"([^\"]*)\", \"([^\"]*)\" opgenomen in de database$")
+    public void zijnDeOpgenomenInDeDatabase(String title, String director) throws Throwable {
+        movie = new Movie(dbHandler);
+        Assert.assertTrue(movie.checkExists(title, director));
     }
 }

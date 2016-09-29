@@ -22,11 +22,12 @@ http://java.sun.com/xml/ns/persistence "
 <persistence-unit name="test">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>nl.newnexus.lab.database.model.Movies</class>
+    <class>nl.newnexus.lab.database.model.AspNetUsers</class>
     <properties>
         <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
         <property name="hibernate.connection.password" value="Test"></property>
         <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"></property>
-        <property name="hibernate.connection.url" value="jdbc:sqlserver://192.168.178.10;databaseName=MoviesDB"></property>
+        <property name="hibernate.connection.url" value="jdbc:sqlserver://192.168.1.7;databaseName=MoviesDB"></property>
         <property name="hibernate.connection.username" value="Test1"></property>
         <property name="hibernate.connection.password" value="Test1"></property>
         <!--property name="hibernate.default_schema">XXXXXX</property-->

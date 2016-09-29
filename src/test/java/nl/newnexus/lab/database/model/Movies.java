@@ -7,10 +7,7 @@ director
 datereleased*/
 
 import javax.persistence.*;
-
-
-
-
+import java.sql.Timestamp;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -20,6 +17,8 @@ public class Movies implements java.io.Serializable {
 
     private Integer id;
     private String title;
+    private String director;
+    private Timestamp dateReleased;
 
     public Movies() {
     }
@@ -40,5 +39,13 @@ public class Movies implements java.io.Serializable {
     public void setTitle(String title) {
         this.title= title;
     }
+
+    @Column(name = "director", unique = true, nullable = false)
+    public String getDirector() {return director;}
+    public void setDirector(String director) {this.director = director;}
+
+    @Column(name = "dateReleased", unique = true, nullable = false)
+    public Timestamp getDateReleased() {return dateReleased;}
+    public void setDateReleased(Timestamp dateReleased) {this.dateReleased = dateReleased;}
 
 }
