@@ -5,11 +5,7 @@ OMSCHRIJVING
 ============================================================================================================================================
 Aanmaken, update, inloggen en verwijderen van/met een account.
 
-Achtergrond:
-
-@LAB
-@NEWNEXUS
-@ACCOUNT
+  @LAB
   Abstract Scenario: 1. maak een account aan
 
     Gegeven marvins movie store is opgestart
@@ -17,6 +13,7 @@ Achtergrond:
     Dan is het "<account>" zichtbaar in de database
     Dan is het "<account>" en het "<password>" zichtbaar in de database
 
+    @LAB
     Voorbeelden:
     | account            | password      |
     | john@hotmail.com   | Test01!       |

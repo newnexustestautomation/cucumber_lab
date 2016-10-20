@@ -6,7 +6,8 @@ package nl.newnexus.lab.runners;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(features = "src/test/resources/features/example.features",
+@CucumberOptions(features = "src/test/resources/features/administrator.feature",
+        tags = "@LAB",
         glue = "nl.newnexus.lab.adapters",
         format = {"pretty", "json:target/cucumber/cucumber.json"})
 public class testrunner extends AbstractTestNGCucumberTests {
