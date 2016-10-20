@@ -41,7 +41,7 @@ public class StartPage extends ParentPage {
 
     public boolean login(String semail, String spassword)
     {
-       controleerPagina();
+        controleerPagina();
         email.sendKeys(semail);
         password.sendKeys(spassword);
         clickOnButton("Log in");

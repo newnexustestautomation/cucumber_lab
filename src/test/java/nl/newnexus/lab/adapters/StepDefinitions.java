@@ -51,25 +51,11 @@ public class StepDefinitions extends ParentStep {
     }
 
 
-    @Gegeven("^Start new nexus$")
-    public void startNewNexus() throws Throwable {
-
-
-    }
-
-
-    @Gegeven("^een voorbeeld$")
-    public void eenVoorbeeld() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-
     @Als("^er een account wordt aangemaakt met \"([^\"]*)\" en \"([^\"]*)\"$")
     public void erEenAccountWordtAangemaaktMetEn(String arg0, String arg1) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         StartPage start = new StartPage(driver);
-        //Assert.assertEquals(true,start.wordtPaginaGetoond(),"Start pagina wordt niet getoond.");
-        Assert.assertEquals(true,start.click("Register as a new user"),"Kan link niet vinden.");
+        Assert.assertEquals(true,start.click("Register"),"Kan link niet vinden.");
 
         CreateAccountPage create = new CreateAccountPage(driver);
         Assert.assertEquals(true,create.maakEenAccount(arg0,arg1), "Kan geen account aanmaken");
@@ -87,11 +73,12 @@ public class StepDefinitions extends ParentStep {
         // Write code here that turns the phrase above into concrete actions
         setBrowserType("chrome");
         driver = createDriver(null);
-        load("https://192.168.1.7:44312");
+        load("https://172.16.237.128:44312");
         String item = getDriver().getTitle();
         Assert.assertEquals(true,item.contains("CheckIT"),"movie store is geopend");
 
         log.info(item);
+
         /*
         // Write code here that turns the phrase above into concrete actions
         LayoutReport layoutReport = Galen.checkLayout(driver, "/specs/example.spec", asList("desktop"));
@@ -106,8 +93,8 @@ public class StepDefinitions extends ParentStep {
     @Dan("^wordt een foutmelding \"([^\"]*)\" getoond$")
     public void wordtEenFoutmeldingGetoond(String text) throws Throwable {
 
-        if (text.equalsIgnoreCase(""))
-        Assert.assertEquals(true,new CreateAccountPage(driver).checkFoutmelding(text),"foutmelding wordt niet getoond");
+        if (!text.equalsIgnoreCase(""))
+            Assert.assertEquals(true,new CreateAccountPage(driver).checkFoutmelding(text),"foutmelding wordt niet getoond");
     }
 
 
@@ -117,12 +104,6 @@ public class StepDefinitions extends ParentStep {
         StartPage start = new StartPage(driver);
         //Assert.assertEquals(true,start.wordtPaginaGetoond(),"Start pagina wordt niet getoond.");
         Assert.assertEquals(true,start.login(arg0,arg1),"Kan niet inloggen");
-
-    }
-
-    @Dan("^zijn de <title>, <director> en <DateReleased> zichtbaar in het filmoverzicht$")
-    public void zijnDeTitleDirectorEnDateReleasedZichtbaarInHetFilmoverzicht() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
 
     }
 
