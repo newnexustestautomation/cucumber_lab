@@ -44,7 +44,7 @@ Aanmaken, update, inloggen en verwijderen van/met een account.
     Voorbeelden:
        | title            | director  | DateReleased           |
        | Star Wars 223434 | Lucas22   | 01-01-1999 12:00:00 AM |
-       | Friday           | IceCube   | 01-01-1977 12:00:00 AM |
+       | Friday part 36   | IceCube   | 01-01-1977 12:00:00 AM |
        | Pulp Fiction     | Tarentino | 01-01-1977 12:00:00 AM |
 
 

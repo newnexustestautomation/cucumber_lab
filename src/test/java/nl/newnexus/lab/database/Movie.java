@@ -32,7 +32,7 @@ public class Movie {
         Query query =  dbHandler.entityManager.createQuery("select m from Movies m where 1=1 " +
                 " and m.title = '"+title+"' " +
                 " and m.director = '"+director+"'");
-        if(query.getResultList().size()==1) {
+        if(query.getResultList().size()>0) {
             Movies movies = (Movies) query.getResultList().get(0);
             log.info(movies.getTitle());
             return true;

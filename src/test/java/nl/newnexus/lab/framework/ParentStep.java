@@ -81,7 +81,7 @@ public class ParentStep extends GalenTestNgTestBase
         } else if (browserType.equalsIgnoreCase("chrome")) {
 
             if (driver == null  ) {
-                System.setProperty("webdriver.chrome.driver", "drivers//chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "drivers//win//chromedriver.exe");
                 driver = new ChromeDriver();
                 driver.manage().timeouts()     .implicitlyWait(5, TimeUnit.SECONDS)
                         .pageLoadTimeout(30, TimeUnit.SECONDS)

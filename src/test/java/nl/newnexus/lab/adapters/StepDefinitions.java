@@ -73,7 +73,7 @@ public class StepDefinitions extends ParentStep {
         // Write code here that turns the phrase above into concrete actions
         setBrowserType("chrome");
         driver = createDriver(null);
-        load("https://172.16.237.128:44312");
+        load("https://localhost:44312");
         String item = getDriver().getTitle();
         Assert.assertEquals(true,item.contains("CheckIT"),"movie store is geopend");
 
